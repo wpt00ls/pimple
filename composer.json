@@ -16,7 +16,7 @@
     ],
     "require": {
         "php": ">=7.2.5",
-        "wpt00ls/container": "dev-master"
+        "wpt00ls/container": "dev-main"
     },
     "require-dev": {
         "symfony/phpunit-bridge": "^5.4@dev"
