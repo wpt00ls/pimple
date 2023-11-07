@@ -22,7 +22,7 @@
         "symfony/phpunit-bridge": "^5.4@dev"
     },
     "autoload": {
-        "psr-0": {
+        "psr-4": {
             "WPTools\\Pimple": "src/"
         }
     },
