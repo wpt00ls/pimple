@@ -14,12 +14,6 @@
             "email": "fabien@symfony.com"
         }
     ],
-    "repositories": [
-        {
-            "type": "vcs",
-            "url": "https://github.com/wpt00ls/container.git"
-        }
-    ],
     "require": {
         "php": ">=7.2.5",
         "wpt00ls/container": "dev-main"
