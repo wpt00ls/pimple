@@ -24,11 +24,11 @@
  * THE SOFTWARE.
  */
 
-namespace Pimple\Psr11;
+namespace WPTools\Pimple\Psr11;
 
 use Pimple\Container as PimpleContainer;
+use WPTools\Psr\Container\ContainerInterface;
 use Pimple\Exception\UnknownIdentifierException;
-use Psr\Container\ContainerInterface;
 
 /**
  * Pimple PSR-11 service locator.
@@ -44,8 +44,10 @@ class ServiceLocator implements ContainerInterface
      * @param PimpleContainer $container The Container instance used to locate services
      * @param array           $ids       Array of service ids that can be located. String keys can be used to define aliases
      */
-    public function __construct(PimpleContainer $container, array $ids)
-    {
+    public function __construct(
+        PimpleContainer $container,
+        array           $ids
+    ) {
         $this->container = $container;
 
         foreach ($ids as $key => $id) {

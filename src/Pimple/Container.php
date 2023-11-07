@@ -24,12 +24,12 @@
  * THE SOFTWARE.
  */
 
-namespace Pimple;
+namespace WPTools\Pimple;
 
-use Pimple\Exception\ExpectedInvokableException;
 use Pimple\Exception\FrozenServiceException;
-use Pimple\Exception\InvalidServiceIdentifierException;
+use Pimple\Exception\ExpectedInvokableException;
 use Pimple\Exception\UnknownIdentifierException;
+use Pimple\Exception\InvalidServiceIdentifierException;
 
 /**
  * Container main class.
@@ -42,8 +42,8 @@ class Container implements \ArrayAccess
     private $factories;
     private $protected;
     private $frozen = [];
-    private $raw = [];
-    private $keys = [];
+    private $raw    = [];
+    private $keys   = [];
 
     /**
      * Instantiates the container.
@@ -71,32 +71,30 @@ class Container implements \ArrayAccess
      * as function names (strings) are callable (creating a function with
      * the same name as an existing parameter would break your container).
      *
-     * @param string $id    The unique identifier for the parameter or object
-     * @param mixed  $value The value of the parameter or a closure to define an object
-     *
-     * @return void
-     *
+     * @param  string                 $id     The unique identifier for the parameter or object
+     * @param  mixed                  $value  The value of the parameter or a closure to define an object
      * @throws FrozenServiceException Prevent override of a frozen service
+     * @return void
      */
     #[\ReturnTypeWillChange]
-    public function offsetSet($id, $value)
-    {
+    public function offsetSet(
+        $id,
+        $value
+    ) {
         if (isset($this->frozen[$id])) {
             throw new FrozenServiceException($id);
         }
 
         $this->values[$id] = $value;
-        $this->keys[$id] = true;
+        $this->keys[$id]   = true;
     }
 
     /**
      * Gets a parameter or an object.
      *
-     * @param string $id The unique identifier for the parameter or object
-     *
-     * @return mixed The value of the parameter or an object
-     *
+     * @param  string                     $id The unique identifier for the parameter or object
      * @throws UnknownIdentifierException If the identifier is not defined
+     * @return mixed                      The value of the parameter or an object
      */
     #[\ReturnTypeWillChange]
     public function offsetGet($id)
@@ -118,8 +116,8 @@ class Container implements \ArrayAccess
             return $this->values[$id]($this);
         }
 
-        $raw = $this->values[$id];
-        $val = $this->values[$id] = $raw($this);
+        $raw            = $this->values[$id];
+        $val            = $this->values[$id]            = $raw($this);
         $this->raw[$id] = $raw;
 
         $this->frozen[$id] = true;
@@ -130,8 +128,7 @@ class Container implements \ArrayAccess
     /**
      * Checks if a parameter or an object is set.
      *
-     * @param string $id The unique identifier for the parameter or object
-     *
+     * @param  string $id The unique identifier for the parameter or object
      * @return bool
      */
     #[\ReturnTypeWillChange]
@@ -143,8 +140,7 @@ class Container implements \ArrayAccess
     /**
      * Unsets a parameter or an object.
      *
-     * @param string $id The unique identifier for the parameter or object
-     *
+     * @param  string $id The unique identifier for the parameter or object
      * @return void
      */
     #[\ReturnTypeWillChange]
@@ -162,11 +158,9 @@ class Container implements \ArrayAccess
     /**
      * Marks a callable as being a factory service.
      *
-     * @param callable $callable A service definition to be used as a factory
-     *
-     * @return callable The passed callable
-     *
+     * @param  callable                   $callable A service definition to be used as a factory
      * @throws ExpectedInvokableException Service definition has to be a closure or an invokable object
+     * @return callable                   The passed callable
      */
     public function factory($callable)
     {
@@ -184,11 +178,9 @@ class Container implements \ArrayAccess
      *
      * This is useful when you want to store a callable as a parameter.
      *
-     * @param callable $callable A callable to protect from being evaluated
-     *
-     * @return callable The passed callable
-     *
+     * @param  callable                   $callable A callable to protect from being evaluated
      * @throws ExpectedInvokableException Service definition has to be a closure or an invokable object
+     * @return callable                   The passed callable
      */
     public function protect($callable)
     {
@@ -204,11 +196,9 @@ class Container implements \ArrayAccess
     /**
      * Gets a parameter or the closure defining an object.
      *
-     * @param string $id The unique identifier for the parameter or object
-     *
-     * @return mixed The value of the parameter or the closure defining an object
-     *
+     * @param  string                     $id The unique identifier for the parameter or object
      * @throws UnknownIdentifierException If the identifier is not defined
+     * @return mixed                      The value of the parameter or the closure defining an object
      */
     public function raw($id)
     {
@@ -229,18 +219,18 @@ class Container implements \ArrayAccess
      * Useful when you want to extend an existing object definition,
      * without necessarily loading that object.
      *
-     * @param string   $id       The unique identifier for the object
-     * @param callable $callable A service definition to extend the original
-     *
-     * @return callable The wrapped callable
-     *
+     * @param  string                            $id       The unique identifier for the object
+     * @param  callable                          $callable A service definition to extend the original
      * @throws UnknownIdentifierException        If the identifier is not defined
      * @throws FrozenServiceException            If the service is frozen
      * @throws InvalidServiceIdentifierException If the identifier belongs to a parameter
      * @throws ExpectedInvokableException        If the extension callable is not a closure or an invokable object
+     * @return callable                          The wrapped callable
      */
-    public function extend($id, $callable)
-    {
+    public function extend(
+        $id,
+        $callable
+    ) {
         if (!isset($this->keys[$id])) {
             throw new UnknownIdentifierException($id);
         }
@@ -288,12 +278,13 @@ class Container implements \ArrayAccess
     /**
      * Registers a service provider.
      *
-     * @param array $values An array of values that customizes the provider
-     *
+     * @param  array    $values An array of values that customizes the provider
      * @return static
      */
-    public function register(ServiceProviderInterface $provider, array $values = [])
-    {
+    public function register(
+        ServiceProviderInterface $provider,
+        array                    $values = []
+    ) {
         $provider->register($this);
 
         foreach ($values as $key => $value) {

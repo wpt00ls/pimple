@@ -24,9 +24,9 @@
  * THE SOFTWARE.
  */
 
-namespace Pimple\Exception;
+namespace WPTools\Pimple\Exception;
 
-use Psr\Container\ContainerExceptionInterface;
+use WPTools\Psr\Container\ContainerExceptionInterface;
 
 /**
  * An attempt to modify a frozen service was made.

@@ -24,9 +24,9 @@
  * THE SOFTWARE.
  */
 
-namespace Pimple\Exception;
+namespace WPTools\Pimple\Exception;
 
-use Psr\Container\ContainerExceptionInterface;
+use WPTools\Psr\Container\ContainerExceptionInterface;
 
 /**
  * A closure or invokable object was expected.

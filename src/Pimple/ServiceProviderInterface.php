@@ -24,7 +24,7 @@
  * THE SOFTWARE.
  */
 
-namespace Pimple;
+namespace WPTools\Pimple;
 
 /**
  * Pimple service provider interface.

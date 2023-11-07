@@ -24,9 +24,9 @@
  * THE SOFTWARE.
  */
 
-namespace Pimple\Exception;
+namespace WPTools\Pimple\Exception;
 
-use Psr\Container\NotFoundExceptionInterface;
+use WPTools\Psr\Container\NotFoundExceptionInterface;
 
 /**
  * An attempt to perform an operation that requires a service identifier was made.

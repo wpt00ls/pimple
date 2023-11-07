@@ -24,10 +24,10 @@
  * THE SOFTWARE.
  */
 
-namespace Pimple\Psr11;
+namespace WPTools\Pimple\Psr11;
 
 use Pimple\Container as PimpleContainer;
-use Psr\Container\ContainerInterface;
+use WPTools\Psr\Container\ContainerInterface;
 
 /**
  * PSR-11 compliant wrapper.
