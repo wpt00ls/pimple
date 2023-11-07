@@ -23,7 +23,7 @@
     },
     "autoload": {
         "psr-4": {
-            "WPTools\\Pimple\\": "src/"
+            "WPTools\\Pimple\\": "src/Pimple"
         }
     },
     "extra": {
