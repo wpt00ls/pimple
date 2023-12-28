@@ -244,6 +244,7 @@ class Container implements \ArrayAccess
         }
 
         if (isset($this->protected[$this->values[$id]])) {
+            // phpcs:ignore
             @\trigger_error(\sprintf('How Pimple behaves when extending protected closures will be fixed in Pimple 4. Are you sure "%s" should be protected?', $id), E_USER_DEPRECATED);
         }
 
