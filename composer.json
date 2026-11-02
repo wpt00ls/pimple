@@ -1,5 +1,5 @@
 {
-    "name": "pimple/pimple",
+    "name": "wpt00ls/pimple",
     "type": "library",
     "description": "Pimple, a simple Dependency Injection Container",
     "keywords": ["dependency injection", "container"],
