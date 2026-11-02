@@ -26,7 +26,7 @@
 
 namespace WPTools\Pimple\Exception;
 
-use WPTools\Psr\Container\ContainerExceptionInterface;
+use Psr\Container\ContainerExceptionInterface;
 
 /**
  * An attempt to modify a frozen service was made.

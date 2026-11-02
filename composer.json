@@ -1,11 +1,8 @@
 {
-    "name": "wpt00ls/pimple",
+    "name": "pimple/pimple",
     "type": "library",
     "description": "Pimple, a simple Dependency Injection Container",
-    "keywords": [
-        "dependency injection",
-        "container"
-    ],
+    "keywords": ["dependency injection", "container"],
     "homepage": "https://pimple.symfony.com",
     "license": "MIT",
     "authors": [
@@ -19,7 +16,7 @@
         "wpt00ls/container": "dev-main"
     },
     "require-dev": {
-        "symfony/phpunit-bridge": "^5.4@dev"
+        "phpunit/phpunit": "*"
     },
     "autoload": {
         "psr-4": {
@@ -28,7 +25,7 @@
     },
     "extra": {
         "branch-alias": {
-            "dev-master": "3.4.x-dev"
+            "dev-master": "3.x-dev"
         }
     }
 }

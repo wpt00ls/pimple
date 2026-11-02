@@ -26,7 +26,7 @@
 
 namespace WPTools\Pimple\Exception;
 
-use WPTools\Psr\Container\ContainerExceptionInterface;
+use Psr\Container\ContainerExceptionInterface;
 
 /**
  * A closure or invokable object was expected.

@@ -27,7 +27,7 @@
 namespace WPTools\Pimple\Psr11;
 
 use Pimple\Container as PimpleContainer;
-use WPTools\Psr\Container\ContainerInterface;
+use Psr\Container\ContainerInterface;
 
 /**
  * PSR-11 compliant wrapper.

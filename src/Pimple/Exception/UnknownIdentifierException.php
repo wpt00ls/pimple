@@ -26,7 +26,7 @@
 
 namespace WPTools\Pimple\Exception;
 
-use WPTools\Psr\Container\NotFoundExceptionInterface;
+use Psr\Container\NotFoundExceptionInterface;
 
 /**
  * The identifier of a valid service or parameter was expected.

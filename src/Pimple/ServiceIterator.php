@@ -36,12 +36,10 @@ final class ServiceIterator implements \Iterator
     private $container;
     private $ids;
 
-    public function __construct(
-        Container $container,
-        array     $ids
-    ) {
+    public function __construct(Container $container, array $ids)
+    {
         $this->container = $container;
-        $this->ids       = $ids;
+        $this->ids = $ids;
     }
 
     /**

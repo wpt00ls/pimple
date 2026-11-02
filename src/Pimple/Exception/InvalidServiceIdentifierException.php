@@ -26,7 +26,7 @@
 
 namespace WPTools\Pimple\Exception;
 
-use WPTools\Psr\Container\NotFoundExceptionInterface;
+use Psr\Container\NotFoundExceptionInterface;
 
 /**
  * An attempt to perform an operation that requires a service identifier was made.
